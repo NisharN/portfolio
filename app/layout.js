@@ -1,7 +1,6 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import ToastProvider from "./components/toast-provider";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import "./css/card.scss";
@@ -24,22 +23,19 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <link rel="icon" href={metadata.icon} />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className={inter.className}>
-        <ToastContainer />
+        <ToastProvider />
         <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
           <Navbar />
           {children}
           <ScrollToTop />
         </main>
         <Footer />
+        {process.env.NEXT_PUBLIC_GTM && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
+        )}
       </body>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
     </html>
   );
 }

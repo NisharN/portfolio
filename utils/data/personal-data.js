@@ -10,6 +10,7 @@ name: "NISHAR AHAMED",
   github: "https://github.com/NisharN",
   linkedIn: "https://www.linkedin.com/in/nishar03",
   leetcode:"https://leetcode.com/u/Nishar_ahamed/",
+  devUsername: "devNisharAhamed",
   resume:
     "https://drive.google.com/file/d/1CrV16gCGfyCc68VI_6zR_aQWnl7MMoSx/view?usp=drive_link",
 };

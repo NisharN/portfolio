@@ -12,7 +12,7 @@ function BlogCard({ blog }) {
     >
       <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         <Image
-          src={blog?.image}
+          src={blog?.image || blog?.cover_image}
           height={1080}
           width={1920}
           alt=""
@@ -44,7 +44,7 @@ function BlogCard({ blog }) {
           {`${blog.reading_time_minutes} Min Read`}
         </p> */}
         <p className='text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3'>
-          {blog.desc}
+          {blog.desc || blog.description}
         </p>
         {/* <div className="">
           <Link target='_blank' href={blog.url}>
